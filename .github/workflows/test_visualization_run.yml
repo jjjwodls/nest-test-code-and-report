@@ -1,0 +1,20 @@
+name: 'test-report'
+on:
+  workflow_run:	
+    workflows: ['nest-project-test-build'] #build completed 에만 실행
+    types:
+      - completed
+permissions:
+  contents: read
+  actions: read
+  checks: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dorny/test-reporter@v1
+        with:
+          artifact: test-results #build 에서 설정한 artifact 이름 
+          name: JEST Tests
+          path: '*.xml'
+          reporter: jest-junit #path 에서 만들어진 xml 의 이름 설정
