@@ -1,0 +1,17 @@
+name: 'nest-project-test-build'
+on:
+  push:
+    branches: [ "master" ]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: yarn
+      
+      - run: ./build.sh
+      - uses: actions/upload-artifact@v3
+        if: success() || failure()
+        with:
+          name: test-results
+          path: reports/jest-junit.xml
