@@ -49,4 +49,9 @@ describe('PostService (with real DB)', () => {
     expect(after).toHaveLength(1);
     expect(after[0].id).toBe(1); // 시퀀스가 초기화되었으므로 id=1
   });
+
+  it('포스트 조회 실패 테스트', async () => {
+    const before = await service.findAll();
+    expect(before).toHaveLength(1);
+  });
 });
