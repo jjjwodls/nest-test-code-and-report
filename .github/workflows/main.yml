@@ -7,6 +7,24 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
+    
+    env:
+     DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+    
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5  
 
     steps:
       - uses: actions/checkout@v4
@@ -14,12 +32,6 @@ jobs:
       - name: Install dependencies
         run: yarn
         
-      - name: Install Docker Compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          docker-compose --version
-
       - name: Run build script
         run: ./build.sh
 
