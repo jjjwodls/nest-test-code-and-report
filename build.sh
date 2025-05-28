@@ -1,5 +1,5 @@
 echo "📦 Running ALL tests (unit + e2e)..."
-yarn test:all
+yarn test:all:build
 
 if [ $? -eq 0 ]; then
   echo "✅ Tests passed. Proceeding to Docker build..."

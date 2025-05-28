@@ -20,6 +20,8 @@
     "test:e2e": "NODE_ENV=test yarn test:e2e:prepare && jest --config ./test/jest-e2e.json",
     "test:e2e:prepare": "dotenv -e .env.test -- yarn prisma migrate dev",
     "test:all": "yarn docker:up && yarn test:e2e:prepare && jest --config ./jest.config.json --ci --reporters=default --reporters=jest-junit && yarn docker:down",
+    "test:build:prepare": "yarn prisma migrate dev",
+    "test:all:build" : "yarn test:build:prepare && jest --config ./jest.config.json --ci --reporters=default --reporters=jest-junit",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down"
   },
