@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="3.436">
+  <testsuite name="AppController" errors="0" failures="0" skipped="0" timestamp="2025-05-28T11:04:46" time="2.404" tests="1">
+    <testcase classname="AppController root should return &quot;Hello World!&quot;" name="AppController root should return &quot;Hello World!&quot;" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="PostService (with real DB)" errors="0" failures="0" skipped="0" timestamp="2025-05-28T11:04:46" time="2.789" tests="2">
+    <testcase classname="PostService (with real DB) should create a post and retrieve it" name="PostService (with real DB) should create a post and retrieve it" time="0.021">
+    </testcase>
+    <testcase classname="PostService (with real DB) should return an empty list, then add and get posts" name="PostService (with real DB) should return an empty list, then add and get posts" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="AppController (e2e)" errors="0" failures="0" skipped="0" timestamp="2025-05-28T11:04:46" time="2.998" tests="3">
+    <testcase classname="AppController (e2e) / (GET)" name="AppController (e2e) / (GET)" time="0.014">
+    </testcase>
+    <testcase classname="AppController (e2e) createPost mutation" name="AppController (e2e) createPost mutation" time="0.015">
+    </testcase>
+    <testcase classname="AppController (e2e) posts query" name="AppController (e2e) posts query" time="0.005">
+    </testcase>
+  </testsuite>
+</testsuites>
