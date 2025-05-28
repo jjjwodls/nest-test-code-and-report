@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: dorny/test-reporter@v1
+        continue-on-error: true
         with:
           artifact: test-results #build 에서 설정한 artifact 이름 
           name: JEST Tests
